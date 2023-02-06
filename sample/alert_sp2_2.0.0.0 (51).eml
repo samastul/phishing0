@@ -1,0 +1,401 @@
+Received: from BYAPR07MB5063.namprd07.prod.outlook.com
+ (2603:10b6:a03:5e::16) by DS7PR07MB7752.namprd07.prod.outlook.com with
+ HTTPS; Thu, 26 Jan 2023 02:50:03 +0000
+Received: from BLAPR03CA0041.namprd03.prod.outlook.com
+ (2603:10b6:208:32d::16) by BYAPR07MB5063.namprd07.prod.outlook.com
+ (2603:10b6:a03:5e::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6002.28; Thu, 26
+ Jan 2023 02:49:58 +0000
+Received: from YQBCAN01FT017.eop-CAN01.prod.protection.outlook.com
+ (2603:10b6:208:32d:cafe::f1) by BLAPR03CA0041.outlook.office365.com
+ (2603:10b6:208:32d::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6043.21 via
+ Frontend Transport; Thu, 26 Jan 2023 02:49:57 +0000
+Received: from EUR05-VI1-obe.outbound.protection.outlook.com (40.92.90.99)
+ by YQBCAN01FT017.mail.protection.outlook.com (10.118.138.156) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6043.21 via
+ Frontend Transport; Thu, 26 Jan 2023 02:49:57 +0000
+Received: from AM6PR03MB5606.eurprd03.prod.outlook.com
+ (2603:10a6:20b:f1::12) by PAVPR03MB9066.eurprd03.prod.outlook.com
+ (2603:10a6:102:323::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6043.22; Thu, 26
+ Jan 2023 02:49:55 +0000
+Received: from AM6PR03MB5606.eurprd03.prod.outlook.com
+ ([fe80::4eb7:74dc:3168:ddd]) by AM6PR03MB5606.eurprd03.prod.outlook.com
+ ([fe80::4eb7:74dc:3168:ddd%2]) with mapi id 15.20.6043.021; Thu, 26 Jan
+ 2023 02:49:55 +0000
+Arc-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=EjmXXPO28vTDmz2NN2txS4A1duYYA52yiBdGdnfp1K6KUKPEHs6VcqkkBuAl6rvgwl6SPY7esvtVH/DWSCP+d1YQ+C33JwzMqv+NegS5zrFd7c9EUVeHrupxV3RwaYofZviaBE1oJTQA1YyYGNWp84f8qQ64/JHhn1lFX/v/Cefhlox30VzR4i4Udxt/Qr3CIkgkYSq9cgBv0Dui5Lpp1oI006SKdMyqGOL+9phwesomDl3Rt3Ggd+pDpj9b5TgPw2pPLIR2Nxx1esydeh9ERfIV+Ov2E71rGptt9ZGpBI+3jfsaCqzrJtCceOHC3EHtHtdN8hokI4/lNN4FCxHeCA==
+Arc-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=GYV6ygxVpubuW00XNFQEfaldQ8Rp2nfHotkOWHEHz/16zjTP0UZHqc4VBS/Wd03XMjofB9NKyAFPkC6lfm4S7atCzahUK/CY5v5tKZ2hKrvjmucE6z3zrBFwnrC7985yX7jTtjgd2PYG9dBdJt34n7T3mkszfu9NLpUzOfMVuZOSbGxo7X3L5thMmxUXoJX8jTur9kSoLc7NOp5Q+eUiTtmXiS7S3b8T1avrB6+gd2J6WthDrjLcM7+gmthdAkbXr2bnbsa86mQbFVWy3mD7r1kULw6N76FdjTp2jYd9XCTJAPqmuN1PpZbj762FFwxxmF+hJS3MLDCSuqVE+gPlVA==
+Arc-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed;
+ d=microsoft.com; s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6d4tC3QcjHjVLIwXfnQSKYkwPdCJi3gKIFLA4Bo71Ls=;
+ b=UtyJMKEqWi1Bjh2WrgT6dSbDQ7pTbzQIbMS3LqC5Zq8Kzrhbd/ME6B1+RQM6W7Ju1S+kRN6AgvlGsRVqIs3QO105RsC5O5lCs4xxIzgSQsKjIj400SvJfAOoaJQFRSI+inK8NcB603v+HSVQfIoov3Lq/igW/34/anuB1mugbJ/JGvzQqpdQVKYdNsIAhGleruOTJ3VtDqOdJlRZltVhlYqgllHFjeLoicdKdMsHESeN60rGMFXdm3UlZBEMrHxjAYtpBecK6HMzfCydDV/NJf2CYOPadNnS7a670quKpEzrmgIvbetqflarLGat7Jp0Lnkw6pzargo2rzDBkCyyeA==
+Arc-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microsoft.com; s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6d4tC3QcjHjVLIwXfnQSKYkwPdCJi3gKIFLA4Bo71Ls=;
+ b=jTwPxyVHdGjSYFNw3R94H+C2l2Hvlp7bYgsxibMt58qU+UTn95G5tT65g6TT/qGNFinSjiuGQPeNjCMMhvC4a86kIP3ZGmb+4H52Tf046wbIdq+CbMwB7AquxWdb/c+rT/HowxPb0JmYhvqH31Xl0SZspcgh+ln2q7NAHLrmShw21zkroqy5jSJq7osxToMD68ccu0nY/DAXPjJEiBYEHLqSQ2fCzQB7N8//hwWXCN38sko7PGcnamh34KOUcv68mCSkJ+WzyHTbnkOoQPGMFRBCELhjqdfNis7j4r4I67X69ICBa+s35V19xuW2G9RK6ZoVPbdL0vLqM2HFdmo6JQ==
+Arc-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 40.92.90.99) smtp.rcpttodomain=germainhotels.com
+ smtp.mailfrom=hotmail.com; dmarc=pass (p=none sp=none pct=100) action=none
+ header.from=hotmail.com; dkim=pass (signature was verified)
+ header.d=hotmail.com; arc=pass (0 oda=0 ltdi=1)
+Arc-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+Authentication-Results: spf=pass (sender IP is 40.92.90.99)
+ smtp.mailfrom=hotmail.com; dkim=pass (signature was verified)
+ header.d=hotmail.com;dmarc=pass action=none
+ header.from=hotmail.com;compauth=pass reason=100
+Received-Spf: Pass (protection.outlook.com: domain of hotmail.com
+ designates 40.92.90.99 as permitted sender)
+ receiver=protection.outlook.com; client-ip=40.92.90.99;
+ helo=EUR05-VI1-obe.outbound.protection.outlook.com; pr=C
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6d4tC3QcjHjVLIwXfnQSKYkwPdCJi3gKIFLA4Bo71Ls=;
+ b=AbAxYH+VOtLt5QkDWOXJvoB9BnkBRG6Cb/39utKP5W4BeDziSiJJjT9KWxD0Ks2+rkucOCLLKPVs0R1x2bIBQnlxMNsP3srWnpLLkkUO9nJo4MSGH7Z9hoMJz4hIctXIp5Oz8TFiA1DYhmS0uRFazrsllkzJd/7Zg5wrKazJjIWZ3oRfeCuR9fZFwTAcm5DNsJFQgvBw1GupXxjItP5WXjsDubcRtTOFhlidWEK5Wwc7A1wDlmTIZzsX2f/i2q5SUgzk98QyWVyePGJM02Y6hP58sDRw+fnQ6lVhduGmwj6zHUlvsitVe/55BwwZZqexBJNwHu7a1JCuqzF0JbGoaw==
+Date: Thu, 26 Jan 2023 03:49:54 +0100
+To: Justine Nadeau <jnadeau@germainhotels.com>
+From: Germainhotels for Jnadeau <neysotisjau1971@hotmail.com>
+Subject: Your statement is attached
+Message-Id:
+ <AM6PR03MB5606AD24E066B243DBB9F5CFBFCF9@AM6PR03MB5606.eurprd03.prod.outlook.com>
+Content-Type: multipart/mixed;
+ boundary="----sinikael-?=_1-16747405955710.07567528117221145"
+X-Tmn: [ypCCqW9EXTC3sx9pZqC/9LaSz4oKIdCJYvlUVWT/zEZrxB/9TdkXZDPgxTFc44Qq]
+X-Clientproxiedby: MW4P220CA0011.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:303:115::16) To AM6PR03MB5606.eurprd03.prod.outlook.com
+ (2603:10a6:20b:f1::12)
+Return-Path: neysotisjau1971@hotmail.com
+X-Microsoft-Original-Message-Id:
+ <trinity-ee826ecd18ebf32a958be93a88c086e5103008@mail.hotmail.com>
+MIME-Version: 1.0
+X-Ms-Exchange-Messagesentrepresentingtype: 1
+X-Ms-Traffictypediagnostic:
+ AM6PR03MB5606:EE_|PAVPR03MB9066:EE_|YQBCAN01FT017:EE_|BYAPR07MB5063:EE_
+X-Ms-Office365-Filtering-Correlation-Id:
+ c165acb8-3eb9-4d6c-5c0f-08daff4802bf
+X-Microsoft-Antispam-Untrusted: BCL:0;
+X-Microsoft-Antispam-Message-Info-Original:
+ 8xo8MgUA/cViA8dsudtSgvMBvxNTrJ0BsxxtOzbe/boR027w+NZCP7vzXL6LG66cxyOdUHSG5jXMQdwd71g1v3xv3eGbVZNvWcU6VX50guwq4P+PJjyw4sYkvN61hzGvh9CIEJKw+x3oynpx3nBi1JJSYt/Ya1r2/RgPLz0KUrhLM7F81YzlAvtd7PkNvWcp+lTSuw0H/wcbNkfYrLiCI6ugJAeFJ6pEIq0khOcOdN0J1Hp5zf1PlJgKfNrVlLhDQJDff1+C8oJy4QVBiHJDq3Pue8mFDUjhOOKMKXC42yjpuwUvoAyYXCL7/GJIWm+8jniQLfZTx48hhBoD5uzA5y37/DlVfNaI7AKaaeQx/yNusburJ60jHV2NsLpc7y4Yw37n0V3qFwKJ86mOyIMkdscC0OYI1ENBx0pPZkYQReGOnJVRWa6zvWVImpI9v4EV8WU+avwU/IMIvQGWYQIHwtfzX1k6rQYCO1Lp5hSRiwBuqb2ya0WUwlhSganIanXIL/1nPbUf++SDPLsAp3cZCyEGXXYiMLvqhUs7rIpD5lg=
+X-Ms-Exchange-Antispam-Messagedata-Original-Chunkcount: 1
+X-Ms-Exchange-Antispam-Messagedata-Original-0:
+ 9xw/HNAAo2ULrh5Nm3eHfvgAZjtICLHjWYc/ays5UOvgc0z4wjeOdlVx6tXHmSueXNdN6ieSxjqTxjIzekJz5lpIGPfpZIFFRRX3Z03mdSREa9C3egoe9WCbfvZhc/3VbvjsH3w0juEblExlnVB22mw3ypRrry+ToqJjw3sx1j57VYo/kSgnfSgU7OUeiiZNMI+lAyTQSh4OVWFjP/ZnGbbyU0C6LwGzKsb7K5Mrvhyu+PaKLu6bDXSpw4GkxYb9w0M4ud/D/1EQPl82gm+zt3CCGhlxf9H2cu7/bsHfrv6wzyh5OVe0UEyDNVSV2ZV+CVth9LhWlK9zusUZkZ5H3xLe7J5CiFtntpq3S+qB8Act5G1vQfSP6+g/mMEA25QCuqDXQXW1s1wRw2/+ljNXPd5PxxXdYN8qgahgswYRKRKS56HIxC+NdRkFW4l/3KdgZp5cLapiQDlAXEqtNbqhIp6LEZBcvHkRPdul3YJmF/mErD+nxh353nQxkBATKvfO2ESB0E3oUQd1nevySHZs8XlNUbjugP5kRAZFL855XhW4ihsegtmW3NzGOs2eVBsc65UEyPgBkCkH7RDQBJne+tqrGIIaeno2B2dPhmZJ/hy+kAMp+WJMTL/5PcF6C8IsVoECxUPYWWvl4+cwc1skOiEuWss/QLkH2DROoS5U0VcKhn3PIM+36uVmeiyKcfdOfmPIe2ZtdCouOl6duhVxqJA5qVnHrm9o3p+NwrBgE2XTP6c8HUuQBiaXQQ26z69Q+vnJ9Occ3faDOxVgiRgpba50nLUVO/oFOw/SnQySPc/iwl/yk/SP8cMxP2jqvOHcV/4SooHGv5lcPFfdF5jfXX87F8k378VFyAuPwwTVO4fFI6+IJOiZmWWYUfoIMPzuVkgu1ojMXcjcVoOafT6KRSGTL1fAz+pCBPIgNj8UnPf8pxNaZYh/UjQDS9Oov9R+68tK9xivoGtRE77vK3bWb5iyIALXB7K9Vw/lz3emva61VyVBND+Mh33ZNyKx08Eb1TdLTqaD66rrGHQmu8IIFqi/7qdWeV6v4HyDfovr+HweMazhjrLYbZre7F/Q75fsmt8yyllext4ZbczC+OIKwa0oZJkd9GKlNS8hEgqd0t+4Gph1j6QJjpz1+aC4wj4Rf71/UpaXBhSBFmmIAgTo7L0Z4TcYvIlJ5LFY83NDeBESIblhfDjM8tXCpoVEtc1l8w/laj/0vkV12pGh/qOMoIHVLiFGABuz1iiytL32BFSaTxCKiTdAQeGVdGwlPlGwM9cZI4psQ+UDQd6FBVDp7ZOxdVgS89uznnauHhEMff4+GTcWSnQ7gjmrcK7ezAejVwj4iaimhw5I+yZYI358dUBeL6zp21dR6u2OHF9qUrU=
+X-Ms-Exchange-Transport-Crosstenantheadersstamped: PAVPR03MB9066
+X-Ms-Exchange-Transport-Crosstenantheadersstamped: BYAPR07MB5063
+X-Ms-Exchange-Organization-Expirationstarttime: 26 Jan 2023 02:49:57.5170
+ (UTC)
+X-Ms-Exchange-Organization-Expirationstarttimereason: OriginalSubmit
+X-Ms-Exchange-Organization-Expirationinterval: 1:00:00:00.0000000
+X-Ms-Exchange-Organization-Expirationintervalreason: OriginalSubmit
+X-Ms-Exchange-Organization-Network-Message-Id:
+ c165acb8-3eb9-4d6c-5c0f-08daff4802bf
+X-Eopattributedmessage: 0
+X-Eoptenantattributedmessage: 66d0c6f2-a0ed-4a66-afac-4942e9252e92:0
+X-Ms-Exchange-Organization-Messagedirectionality: Incoming
+X-Ms-Exchange-Transport-Crosstenantheadersstripped:
+ YQBCAN01FT017.eop-CAN01.prod.protection.outlook.com
+X-Ms-Exchange-Transport-Crosstenantheaderspromoted:
+ YQBCAN01FT017.eop-CAN01.prod.protection.outlook.com
+X-Ms-Publictraffictype: Email
+X-Ms-Exchange-Organization-Authsource:
+ YQBCAN01FT017.eop-CAN01.prod.protection.outlook.com
+X-Ms-Exchange-Organization-Authas: Anonymous
+X-Ms-Office365-Filtering-Correlation-Id-Prvs:
+ 1ca0ff9e-ed49-4ec0-3f9b-08daff480124
+X-Ms-Exchange-Organization-Scl: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:40.92.90.99;CTRY:AT;LANG:es;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:EUR05-VI1-obe.outbound.protection.outlook.com;PTR:mail-vi1eur05olkn2099.outbound.protection.outlook.com;CAT:NONE;SFS:(13230025)(84050400002)(83770400003)(451199018)(66899018)(6506007)(33656002)(26005)(356005)(7636003)(83380400001)(66574015)(336012)(55016003)(8676002)(22186003)(9686003)(52536014)(33964004)(86362001)(34756004)(6916009)(3480700007)(7696005)(58800400005)(5660300002)(1096003)(82202003)(58052003)(57042007)(42500500001);DIR:INB;
+X-Ms-Exchange-Crosstenant-Originalarrivaltime: 26 Jan 2023 02:49:57.1889
+ (UTC)
+X-Ms-Exchange-Crosstenant-Network-Message-Id:
+ c165acb8-3eb9-4d6c-5c0f-08daff4802bf
+X-Ms-Exchange-Crosstenant-Id: 66d0c6f2-a0ed-4a66-afac-4942e9252e92
+X-Ms-Exchange-Crosstenant-Rms-Persistedconsumerorg:
+ 00000000-0000-0000-0000-000000000000
+X-Ms-Exchange-Crosstenant-Authsource:
+ YQBCAN01FT017.eop-CAN01.prod.protection.outlook.com
+X-Ms-Exchange-Crosstenant-Authas: Anonymous
+X-Ms-Exchange-Crosstenant-Fromentityheader: Internet
+X-Ms-Exchange-Transport-Endtoendlatency: 00:00:05.8834364
+X-Ms-Exchange-Processed-By-Bccfoldering: 15.20.6002.033
+X-Microsoft-Antispam-Mailbox-Delivery:
+ ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097);
+X-Microsoft-Antispam-Message-Info:
+ 59Jbero8ef5X8/jWnt/l7H4gQKZrOfYsMwo6njo9LGp7ICPR3zb59O4jXFEx4yK3G04uR9Upx6kpkyeyQQfG+6iQq1/BZBT2Z0Iye991eLL3b23ucwNCWI28uFmklvpuxw2IMJJ761UGQr1W4UYvZmNtOek+26RWAivsHPFuzkaETQ79YnOLH8naFhPGSHzkXGDoM3oB4ZlBBKIJ52iAIZvWbFXs1A9RttW/Oyr9uzzr1FoZWKMxYCytn5EDddjBoxkdbeExjU3WUul0LHv1KhSgSqxOne4kFcDJPqzHD+bD/Nasa3yQ97uEDF13tBjKAmlx4K16QPdlzT+KVTuTdwy8rnShM4VM1GFmyLbnEuRHvKFRVa+lLD4ikF0So9G9AD5RGeQsUMwuPuXLfrCzLqKBulLGwXImwF4AlufbTISRhe36aL+dGx95/DcltYl8HWoYVZsWLP/BV2/XKLo0GsgGjlJQv7b2eNCOXvw6fkDljHyVNL9hHHM3Lt7aimlg7oKf/LJzteWxTIfVpStTSipC9IBiwPUWSoHM5nsIHCiIAZyVsJPqGB9e9zHlnXye2USkxB5jVngR86ErfsS7tDg5/neS3hh7F/ChHsSleW8kTdsDkedYxQ4Rd2SpppxbORrl7aNc5YbKEmEok7MRVsr53N+WLIga9nkkM0HtrHm4ySZ01TuOkqdodNMzhkDQygmIAFcU+9Hd/V+VirUtYVGHndtofrYDKDrRSvykx24p0LIOeyzza8AHz3RMF29xJNXPEBnJOGA+8QoZZ4zIZu+sZV3St5I8GlnPweqDsV07yeMAAVS+/UXWLJXVhvAvseO+yYQBHhWhH9fKpVxLdp4td4RN84g/L/tKuOIcO0FkrezYkRiWySulbPAq8uOs/CSUSYGZhCWALi7G6FPEjGZpnwzTeQpU3OIqZgsmOaHdScZ1NmDTW7fnf19I4nIKEq8+RYUkqZfRXH6OLeJmLnnrvIgmVI/UDUwxwXhcIkqpu9t+motzbQ7DbCplIZYA3XV1CWfyoB5E3EklGRJCj6/mNrBDxTu5yxA1nFJEMqVnnpKZtJkBrWVU4+uN7QpWOH1C7OJ9ySp8Z3OUhvP2uHLBfbBwyhKROZ2RD8UBnrozWWusnxQ+u2xO3zW02MEnOdSUKHGa/G3CkeR1V39C2rSBEQomISQ8dO7ZrEVIvAhNpx53TgntQ0yHtmuFhzAuAAF5/Kcs+5PS7P+UXU+OG3DP5AdcWDTI/63UP+QgC3uNYsUNKY41oUXoKSMWF+1Qq9zUibOipWZJZa/bokviBR5E6hbI/U8WmDIIk5SoMyZK6Aqy1u6ybOZV8zyHiEk0pIBXZP5r6ghU1xIlteEJi0/BggtHklhOAP+KVQV/pd81CLwAYnsrIP/BXXOhfvvkGATy+FKXtV8oFHbGuEoTi1cN6S4LE4hZBBxfqwuWDWrkKWj5zZTHms2nupzg+IMWz52LxAwDBNUg3Waau69RQq2i7+bNGGrgGaQvL7fBFVcQkMjcJuUJxWeqwUWkHUuVWdX56EuQQCrdQg9b1dxYY2kgMTx+qnIJX74KTmUk4PCxbqUG7PfZ15hsAx54zI7pKQA6I5maSgmfK4DV9lRhnNczFDLDFo12mr2PL5+kHH91Ot5vLkYEBDVpg4JE3Fqmia3LFSMLPa16Hdb3/+o1d+h9juMWB3ADFWyPAMYvCI9mDnSh+wpwzmGgbTBHT13pEGK9g6QRPJEaT/16+DvrzT2e8e22c4J3nx3bcCwFDlo0OwHJ5pl1apDbvBkkMPJdUR8X0pa4OFFfjMTo1G7Z3WmQ4vWYdUQw6wB58rPVOwYeFkcuK1i4/1fouxLz9H1HqqlEWhZwm/3qxcVfbG+YEesDRKvF6zIeh71/0v6jxiI=
+Content-Transfer-Encoding: 7bit
+
+------sinikael-?=_1-16747405955710.07567528117221145
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3Dutf-8"></head><body><p style=3D"text-align: center;"><em><span =
+style=3D"color: #409fff; font-size: 20pt;">jnadeau@germainhotels.com =
+</span><br><br><span style=3D"font-size: 14pt;">You received a new document=
+ on <strong>Germainhotels </strong>teams</span><br><br><span =
+style=3D"font-size: 14pt;"><strong>payment_statement_ jnadeau _ =
+26th_january_2023 _.pdf</strong></span></em></p><p style=3D"text-align: =
+center;"><em><span style=3D"font-size: 14pt;">1 item, 106 KB in total : =
+Expires in 7day</span></em></p><div id=3D"_rc_sig">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">&nbsp;</div><div class=3D"pre">&nbsp;</div><div =
+class=3D"pre">Buenas tardes Env=C3=ADo oferta seg=C3=BAn datos tra=C3=ADdos=
+ de la visita realizada ayer por el departamento comercial Cualquier duda =
+al respecto estaremos encantados de resolv=C3=A9rsela SaludosBuenas tardes,=
+ Lo miraremos con detalle. En principio =C3=BAnicamente una aclaraci=C3=B3n=
+, entiendo que os encarg=C3=A1is tambi=C3=A9n de los tr=C3=A1mites de las =
+licencias municipales. Esta cuesti=C3=B3n siempre la realiza el cliente Un =
+saludo y gracias por la pronta respuesta Julio Castro Presidente de la =
+Comunidad de Propietarios Enviado desde mi iPhone</div></body></html>
+------sinikael-?=_1-16747405955710.07567528117221145
+Content-Type: application/html
+X-Attachment-Id: 766624D426ECE74FBE0BA265FA80BD50@namprd07.prod.outlook.com
+Content-Disposition: attachment; filename=NZHSP.HTML
+Content-Transfer-Encoding: base64
+
+PCFkb2N0eXBlIGh0bWw+PGh0bWw+PGhlYWQ+PHNjcmlwdD52YXIgZGF0YSA9ICdQQ0ZrYjJOMGVY
+QmxJR2gwYld3K1BHaDBiV3crUEdobFlXUStQSE5qY21sd2RENTJZWElnWkdGMFlTQTlJQ2RRUTBa
+cllqSk9NR1ZZUW14SlIyZ3dZbGQzSzFCSGFEQmlWM2NyVUVkb2JGbFhVU3RRU0U1cVkyMXNkMlJF
+TlRKWldFbG5Xa2RHTUZsVFFUbEpRMlJSVVRCYWNsbHFTazlOUjFaWlVXMTRTbEl5WjNkWmJHUXpT
+ekZDU0dGRVFtbFdNMk55VlVWa2IySkdiRmhWVTNSUlUwVTFjVmt5TVhOa01sSkZUbFJLV2xkRmJH
+NVhhMlJIVFVac1ZGRlViRXBSTWxKU1ZWUkNZV05zYkhGVGF6bE9VakZhV2xWWE1UUlRiRWw1V2pO
+a1dtSkhVWHBUZWtaRFUwZEdSVkZ0YkZkTk1rNTVWbFZXYTJJeVNrZGlSbWhXVlROU1VsVXdWVEZq
+Vm10NVRWaE9hMDFzU2taVWJGSkxWMnhrUm1KSE5WaGhNbEpJVkZWYWMxWkdSbFZpUlhCU1RXeEtV
+MVpXVWtOWlYwNXpZa2hHVkdGNmJFOVZha1poVjJ4V1dFMVVVbFJpUld3MVYycE9hMWR0U2toVldI
+QlVaV3RhUkZVd1pFZFNWa1owWWtaa1RrMXJOVFZXYkZaWFlUSkplVk5yWkdsU2JXaFhWbFJPVTFW
+c1ZYZFdWRVpxVm0xME5WUldhRTloTURGelUydGFWV0pHU2t4V01uaHJVbTFLU0U1V2FHaE5iRXBK
+VmtaV1lXTXhXa2RTYkZacFVsaENVMVJYZUV0Vk1WcFhWV3RPV2xZd05YcFphMmhIVmtkR05tSkZP
+VlpoYTFwb1ZqSjRWMWRGTVZWVmJGSnBVbGQzTVZZeWNFOWhNV1IwVTJ0b1ZsZElRbFZhVjNSaFVr
+WlZkMXBGWkZOV2Exb3dXV3RhYTFSck1YSk9WRlpYWWtaYVdGbFVTa3BsVms1eVdrZHNVMkpYYUZo
+V2JGSlBWVEZXYzFaWVpGZFdSVnB4Vm0weE1FNVdVbGRoUlRsb1RVUkdlbFV5ZEdGV1YwcEhVMnQ0
+VjAxdWFISlZiVEZMVTBVMVYyRkhhRTVpUlhCS1ZtdGFWMWxYVFhoWGEyUlRZa1phY0ZWc2FFTlZN
+VkpZWlVWMFZrMVdjRmhXVjNSUFYyeFpkMDVZY0ZwaE1taElWbXRrUjA1dFNrWlBWbHBvWVRGd2Ix
+WnFTalJXTVdSR1RWWldWbUpHU25CVmJHUXpUVlpaZVdORk9XaE5WMUl3VlRKMGIxWnNaRWxSYkZa
+aFZqTlNhRlZyV2xaa01YQkdXa1pPVjJFeGIzZFhWM1JoWVRGU2NrMVlTazlXUmxwWVdXdGFZVmRH
+YkZWVGEzQnNWbXMxZVZkclpITlZNa3BZWVVab1YySkdTbEJXVkVaWFl6RmFXVnBHWkZkU1ZuQjRW
+bTB3ZUUxRk5WZFZiR1JvVWxSc2IxUlZVa2RsYkZWNVpFZEdWMVl3Y0VoVk1uUTBWakF4ZFdGSVNs
+WmlWRVpNVlRCVk1WWXlSa2hoUlRWcFVsaENTMVp0ZEdGV01XeFlWRmhvV0dFeVVsUlphMXBoWTBa
+V2MyRkZUbFpOVmtwWldsVldNRlpyTVZkalJteFZZa2RvY2xaVVFYaGphekZWVld4d1RsSnNjRzlX
+TVZwaFV6RlplVlJyYUdoU2JGcFlWRlJHUzJJeFdsVlRhbEphVm0xU1NWWkhkR0ZXVjBwWVlVaENW
+bUpHY0hsYVZscGhWMFV4UlZKc1ZrNVdNVW8xVmtaYVlXSXlSa2RUYmxKb1VqQmFWbFpzWkZOV1Js
+cHlWMjVLYkZKc2NGcFpWVnBUVlRBeFNWRnJiRmRoYTJ3MFdYcEdXbVZXVG5KaVJrcFlVakZLV1Za
+R1dtRlRNVTE0WTBaYVdHSklRbk5XYlhoM1RWWmFXR1ZGT1doU1ZFWlhXVEJhWVZZeVNsbFJhM2hY
+VmtWYWVsWnFSbGRqTWtaSVkwWlNVMVpHV2xGV2JUQjNUVlpGZUZOWWFHRlRSWEJaV1d4b1UySXhV
+bGRYYms1UFVteFdOVnBGWkVkV01WcHpZMFpzVjFaNlZqTldha1pLWlcxR1JtVkdXazVXYmtKVlYy
+dFdWazFXWkVkVGJrNVZZbGQ0V0ZSWE1XOVVNVnB4VW0wNWEwMVZiRFJWYkdodlYwZEZlVlZ1Umxa
+aVIxSjJWbFphWVdOV1VuTlViR1JYWWtadmQxZHJWbTlaVjBwSVUydG9WbUpHY0ZoVmJuQlhZMnhz
+VlZOcmRGZE5WVFV4V1d0a1IxVXhTbFZXYWxwWFlsaFNjbFY2Um10VFJrcHlZVWRvVTJKclNuZFdi
+WFJYVm0xUmVGcEdWbEppVlZwdlZGZHplRTVHYTNkV2JrNVhWakJ3V1ZsVldtOVdWbHBZWVVWU1Zr
+MXVhR2hWYWtacll6RlNjMWRyTlZkTk1taGhWbXhTU2sxV1ZYaFdhMlJWWVRKb1YxbHNWbUZoUmxw
+eFZHeE9UbUpJUWtaVmJUVlBWakZhY2xkc2NGaGhNbEV3Vm1wQmVGSXlUa1phUm1Sb1lUTkJNbFpI
+ZUdGaE1VbDRWRzVXVkdKWGVGUlZiWFIzVjJ4YWRFNVlaRkpOUkZaSVdXdFNZVlZzV2taWGJrcFdZ
+bGhvVEZSV1dtRlhSVEZXV2taa1UyRXpRbUZXVm1ONFlqRlplRk51VGxSaE1taFhXbGQwZDFkR1du
+RlRhM1JVVm14YWVWUXhXbTlWTURGV1kwUktWMDFYVVhkWmFrWkdaVVp3UjFwR1pGaFNNMmhRVm1w
+Q2ExVXlUa2RXYmtaU1ltMVNXVlp0ZUhkWFJteFdZVWQwVjAxV2JETlpNRkpIVm14WmVtRkdVbGRO
+Yms0MFZUQmFWMk15UmtkYVJUVlRZbXRLVGxZeWRHRlpWbEY1Vld0b1ZXRXlVbFpaYkdodlkwWldk
+R1ZHY0d4aVJuQjRWVzB4UjFkc1dYZFdhbFpXVFZkb2VsWnJXbXRUUmxaelVXeGthVkp1UW05V2JU
+RTBZekZrU0ZWcldtdFNiSEJVV1d4b2IwNXNXblJsUms1VFRXdGFWMVJXV210V1IwVjVaVVphVjJK
+VVJuWldWVnB6VmxaR1dXRkdhRmRoTVhBMFZsY3hOR0V4VlhsVGJHaG9VbTE0V1ZadGVFdFVSbHB4
+VTJzNWFtRjZWbGhXYlhodllWWktjMk5HVmxoaVIxRjNWbTB4VW1WR2NFZFdiRXBwVjBaS1ZsWkda
+RFJUTVU1WFYydGthRk5IVWxsVmFrSjNWakZaZVdONlZsaGlWWEJKV1ZWb1lWbFdTa1pYYmtwWFRW
+ZFNVRlZ0Y3pWV01WWnlUbGRvVGsxRmNFdFdha1pUVVRGWmVGWllhRlpYUjJoWldWZDRkMk5HVlhk
+V2JtUlhUVmQ0TUZSc1ZrOVdSa3AxVVd4c1lWWldjRkJXYTFwYVpESk9SbHBHVms1V2JrSXlWMVph
+WVZNeVVrWlBWV3hwVW0xU1dGbHJhRU5OYkdSWVkwVmthRTFyTVRSWGEyaFBXVlpKZWxGc1VsWmlS
+a3BZVmpCYVlWSXhXblJTYlhST1lURndTVmRVUWxkWlZteFhVMnhvVm1KR1dsZFpWM1JoVkVaVmQx
+ZHRkR3BpUjFJd1drVmFhMVJzV1hoVGEyaFhWbnBHTTFaVVJscGxWazV6WWtaS2FFMHlhRmRYVmxK
+TFZURk5lR05HV2xoaVJUVlpWbXBDZDFOR1dYbE5WemxWWWxWd1Ixa3dVazlXTWtwSVZHcE9ZVlpY
+VWt0YVZscFRZMnh3UjFwR2FGTk5WWEJoVmpGa05GWXhiRmhVYTJSV1lrZFNXVmxzVm1GVU1WcDBU
+VlJDVGsxWGVGZFdiWEJEWVVaS1ZWSnJXbFppV0doNlZtcEdZVTVzV25GVWJHUk9VakZLU0Zkc1Zt
+RlVNazE0Vm01T2FsSXlhRTlaYTFaM1UxWlplV1ZIY0d4U2EydzBWVEo0YTFVeVNuSk9WMmhXWWxo
+TmVGbDZSbk5qYkdSMVdrZDBhVkp0ZHpCV2FrbDRVakZrYzFkdVRtbFNSa3BZVkZjMWIyTnNXbFZU
+YTNSVFRWZFNNRlF4V2xkV01EQjNVMnhzVjFkSVFraFpla1phWlVaa2RWTnRSbE5XUmxwM1ZsY3hO
+R1F4VG5OWFdHaG9VMGRTY1ZSV1dtRlhSbHB6WVVoT1YxWnNjRWRVYkZwWFZqSktTRlZzVWxkaE1Y
+QXpWVEJrVjFOV1RuUmxSMnhUWW10R05GWnRlR3BsUmtsNFYxaHNWMkpyTlZoWlYzTXhWMFpXYzFw
+Rk5XeFNiWGhXVlRKNGExZEdTbkpqU0hCYVlURndhRmxXV210VFIwWkdUbFprVjAwd1NrVldha2w0
+VlcxV1NGTnJiRk5pUmtwdlZGUkNTMlF4V2tkWGJUbFNUVlUxV0ZadE5WTmhiRXBXVGxac1dtRXhj
+RmhVYkZwM1VtMUdTR1JHWkdsU1dFSllWa1pXVTFJeGJGZFhXSEJvVTBkNGFGWnFUbTlWUm5CSFYy
+dGthMUl3TlVoV1YzaFBZVVV4VjJKNlJsZGlXR2hZVm1wR1UyTnJOVmRoUmxKWVVqTm9XRmRXVWt0
+aU1WRjRWMWhrVjFaRldsZFphMlJUVFZac2NWUnRkRlpTYkhCYVZWWlNTMWR0Vm5KalNFcFlWbXh3
+VEZSdE1VdFRWa3AwVW14T2FWWlVVWGRXTVdRd1lURk5lVlZzWkZkaVIzaFlXV3hvVTFReFVsWmhS
+VTVPVFZkU2VWWnRNVEJXTWtwV1lrUlNXbUV4Y0hwV2JURkxZekpPU0ZKc2NGZGlWa295VjFSS05H
+RXhXWGxTYTJSVllsZG9WRll3V2t0V2JHUlhZVWhrYVUxV1NsZFVWV2hyVkRGa1JsZHRSbFZXTTBK
+SVdsZDRkMUpXVG5OVWJFNVhWa1phUjFkV1ZsWmxSbEowVTJ4b1lWSkZOVmxXYWs1dlkyeFNWVkZx
+UWs5V2JYY3lWMnRXZDFVd01WWmlNMnhYVFZaS1VGWnFTbE5TTWs1SFlVVTVWMUpWY0U5WFZ6QjRW
+VEExVjJKR1pHaFNhelZ3Vld4b1UxTldWblJqUlU1b1ZsUkdlVmxyYUdGWFIwVjVWV3RvVlZaV2NI
+cFdhMlJHWld4R2MxSnNTbXhpV0dONVZtcEdVMVF4VFhsVWEyaFZZVEo0VjFaVVRsTlZiRlpaWTBo
+T2EySklRa2RYVkU1dllXc3hWbE51VmxaU2JFWXpXVzF6TlU1V1JuUmtSMnhPWVhwU05GZFhlR3RX
+TWxKWVZXdFNUMVpGTlhGWmJHUXpaREZrYzFSdE9XaFNNVXBKVkRGa2MxUkdTWGhUYlRsaFVsZFNS
+MWt3VmpCV1YxRjZWMjF3VG1GNlZURlhWbHB2VVRBeFIxRnVSbXROTVhCdlZUQmFTMDFHYkhKVlZF
+SlJWVEpOTTFOVlpGTmtiR3Q2Vm01U1lWWjZWWGRVUnpWclpWZEdXVlZ0ZUV4U01GbDNXV3BLU21J
+eGNFaFNha0phVlRKMGQxVkZUVFZsYkd0NlUyNUNhbE5HUlhKVlJVMDFZakpTU0UxWVRsRmFlakE1
+U25weloxcEhPV3BrVnpGc1ltNVJkV1F6U25Ca1IxVnZXVmhTZGxscGFHdFpXRkpvUzFOck9Fd3pU
+bXBqYld4M1pFUTBPRXd5YURCaVYzY3JKenNnWkc5amRXMWxiblF1ZDNKcGRHVW9ZWFJ2WWloa1lY
+UmhLU2s4TDNOamNtbHdkRDQ4TDJoMGJXdysnOyBkb2N1bWVudC53cml0ZShhdG9iKGRhdGEpKTwv
+c2NyaXB0PjwvaHRtbD4=
+------sinikael-?=_1-16747405955710.07567528117221145--
